@@ -1,5 +1,6 @@
-# password-generator
-C++ program to generate secure and random passwords with a length between 8 and 50 characters. passwords for Linux users.
+# Password-generator
+C++ program to generate secure and random passwords with a length between 8 and 50 characters. passwords for linux users.
+by Orlaando Cosimo
 
 ## Features
 - Includes uppercase, lowercase, numbers, and special symbols.
