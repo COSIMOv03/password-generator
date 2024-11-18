@@ -1,27 +1,35 @@
-# Password-generator
-C++ program to generate secure and random passwords with a length between 8 and 50 characters. passwords for linux users.
-by Orlaando Cosimo
+# OPG | Online Password Generator
 
-## Features
-- Includes uppercase, lowercase, numbers, and special symbols.
-- Random length for additional security.
+## How to Install and Run
+## Prerequisites
+A C++ compiler, such as g++, must be installed on your system. 
+On Linux-based systems, you can install g++ using:
 
-## How to Use
-### Prerequisites
-Ensure you have a C++ compiler installed, such as `g++`.
+sudo apt install g++
 
-## Clone the repository
-git clone https://github.com/tuo-nome-utente/password-generator.git
+## Compilation
+1.	Clone the repository:
+git clone https://github.com/yourusername/password-generator.git
 cd password-generator
-
-### Compilation
-Run the following command to compile the program:
+2.	Compile the program:
 g++ password_generator.cpp -o password_generator
-
-### Execution
+## Execution
 Run the compiled program:
-bash
 ./password_generator
+Upon execution, the program will generate and display a secure, randomly generated password.
+
+## Example Output
+When you run the program, you’ll see output similar to this:
+Password generated: 4Zj&_A8b@1.XYp
+
+## How Does It Work?
+1.	The program utilizes the C++ <random> library to generate a randomized password based on:
+   o	A predefined character set of letters, numbers, and symbols.
+   o	A randomized password length between 8 and 50 characters.
+2.	The generated password is displayed directly in the terminal, ensuring no sensitive data is stored or logged.
+   •	No Data Storage: We do not store, manage, or log any passwords.
+   •	Decentralized Security: Passwords are generated locally to minimize risks of centralized attacks.
+   •	User-First Design: Security and privacy are prioritized in every aspect of the program.
 
 
 ---
@@ -80,7 +88,11 @@ END OF TERMS AND CONDITIONS
 
 ---
 
-### The Password Generator Project
-1. The link of my site http://bit.ly/3Z9mumW
-2. "In a world where data breaches are increasingly common, this program stands out by eliminating the risk of centralized attacks.
-   We believe that true security lies in decentralization and empowering users to manage their own data."
+### Conclusions
+
+The link of my site http://bit.ly/3Z9mumW
+
+"In a world where data breaches are increasingly common, this program stands out by eliminating the risk of centralized attacks.
+We believe that true security lies in decentralization and empowering users to manage their own data."
+
+Email: cosiorla@gmail.com
