@@ -35,12 +35,12 @@ Password generated: 4Zj&_A8b@1.XYp
 
 #### Prerequisites
 1. Ensure you have Xcode Command Line Tools
-   xcode-select --install
+xcode-select --install
 ## Clone the repository
-   git clone https://github.com/COSIMOv03/password-generator/.git
-   cd COSIMOv03-Password-Generator
+git clone https://github.com/COSIMOv03/password-generator/.git
+cd COSIMOv03-Password-Generator
 ## Compile the program
-   g++ -o password_generator password_generator.cpp
+g++ -o password_generator password_generator.cpp
 ## Run the program
 ./password_generator
 
