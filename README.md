@@ -31,6 +31,19 @@ Password generated: 4Zj&_A8b@1.XYp
    •	Decentralized Security: Passwords are generated locally to minimize risks of centralized attacks.
    •	User-First Design: Security and privacy are prioritized in every aspect of the program.
 
+## Installation Instructions for MacOS
+
+#### Prerequisites
+1. Ensure you have Xcode Command Line Tools
+   xcode-select --install
+## Clone the repository
+   git clone https://github.com/COSIMOv03/password-generator/.git
+   cd COSIMOv03-Password-Generator
+## Compile the program
+   g++ -o password_generator password_generator.cpp
+## Run the program
+./password_generator
+
 
 ---
 
