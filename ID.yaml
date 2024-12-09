@@ -1,0 +1,9 @@
+Id: COSIMOv03.password-generator
+Name: Password Generator
+Publisher: COSIMOv03
+AppMoniker: password-generator
+Description: A simple password generator
+License: MIT
+Version: 1.0.0
+InstallerType: exe
+InstallerUrl: https://github.com/COSIMOv03/password-generator/releases/download/v1.0/password_generator_installer.exe
