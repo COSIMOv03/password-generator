@@ -1,12 +1,11 @@
 # Password Generator
 
-## How to Install and Run
+## How to Install and Run on Linux
+
 ## Prerequisites
 A C++ compiler, such as g++, must be installed on your system. 
 On Linux-based systems, you can install g++ using:
-
 sudo apt install g++
-
 ## Compilation
 1.	Clone the repository:
 git clone https://github.com/COSIMOv03/password-generator.git
@@ -31,7 +30,7 @@ Password generated: 4Zj&_A8b@1.XYp
    •	Decentralized Security: Passwords are generated locally to minimize risks of centralized attacks.
    •	User-First Design: Security and privacy are prioritized in every aspect of the program.
 
-## Installation Instructions for MacOS with HomeBrew
+## How to Install and Run on macOS
 
 ## Add the Tap: Users must first add your Homebrew tap to their system:
 brew tap COSIMOv03/password-generator https://github.com/COSIMOv03/homebrew-password-generator
@@ -45,6 +44,19 @@ brew upgrade password-generator
 brew install --build-from-source password-generator
 ## Verify Functionality: After installation, make sure the program works correctly by running the command:
 password-generator --help
+
+## How to Install and Run on Windows with winget
+
+## Prerequisites: Ensure that Windows Package Manager, you can check if winget is installed by running the following command in PowerShell:
+winget --version
+## Installation using winget: Once you have winget installed, you can install your program with a simple command. Assuming the program has been uploaded to a repository or tap on winget, you can install it using:
+winget install COSIMOv03.password-generator
+## Make sure that the program is available on winget. If not, you'll need to submit the manifest to the winget-pkgs repository.
+## Execution: After the program has been installed, you can run it directly from PowerShell or Command Prompt:
+password-generator
+## This will execute the password generator and display a secure, randomly generated password.
+## Update the Program: To update the program to the latest version, use:
+winget upgrade COSIMOv03.password-generator
 
 
 ### Apache License
