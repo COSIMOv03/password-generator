@@ -32,30 +32,48 @@ Password generated: 4Zj&_A8b@1.XYp
 
 ## How to Install and Run on macOS
 
-## Add the Tap: Users must first add your Homebrew tap to their system:
+Add the Tap: Users must first add your Homebrew tap to their system:
+
 brew tap COSIMOv03/password-generator https://github.com/COSIMOv03/homebrew-password-generator
-## Install the Program: After adding the tap, the user can install the program:
+
+Install the Program: After adding the tap, the user can install the program:
+
 brew install password-generator
-## Run the Program: Once installed, you can run the program with:
+
+Run the Program: Once installed, you can run the program with:
+
 password-generator
-## Update the Program: To update the program to the latest version:
+
+Update the Program: To update the program to the latest version:
+
 brew upgrade password-generator
-## Test the Compilation: Before uploading the formula to your GitHub repository, make sure the program compiles correctly using the formula. You can do this by testing the formula locally with:
+
+Test the Compilation: Before uploading the formula to your GitHub repository, make sure the program compiles correctly using the formula. You can do this by testing the formula locally with:
+
 brew install --build-from-source password-generator
-## Verify Functionality: After installation, make sure the program works correctly by running the command:
+
+Verify Functionality: After installation, make sure the program works correctly by running the command:
+
 password-generator --help
 
-## How to Install and Run on Windows with winget
+## How to Install and Run on Windows
 
-## Prerequisites: Ensure that Windows Package Manager, you can check if winget is installed by running the following command in PowerShell:
+Prerequisites: Ensure that Windows Package Manager, you can check if winget is installed by running the following command in PowerShell:
+
 winget --version
-## Installation using winget: Once you have winget installed, you can install your program with a simple command. Assuming the program has been uploaded to a repository or tap on winget, you can install it using:
+
+Installation using winget: Once you have winget installed, you can install your program with a simple command. Assuming the program has been uploaded to a repository or tap on winget, you can install it using:
+
 winget install COSIMOv03.password-generator
-## Make sure that the program is available on winget. If not, you'll need to submit the manifest to the winget-pkgs repository.
-## Execution: After the program has been installed, you can run it directly from PowerShell or Command Prompt:
+
+Make sure that the program is available on winget. If not, you'll need to submit the manifest to the winget-pkgs repository.
+Execution: After the program has been installed, you can run it directly from PowerShell or Command Prompt:
+
 password-generator
-## This will execute the password generator and display a secure, randomly generated password.
-## Update the Program: To update the program to the latest version, use:
+
+This will execute the password generator and display a secure, randomly generated password.
+Update the Program: To update the program to the latest version, use:
+
 winget upgrade COSIMOv03.password-generator
 
 
