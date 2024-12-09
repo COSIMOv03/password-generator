@@ -45,20 +45,6 @@ brew install --build-from-source password-generator
 ## Verify Functionality: After installation, make sure the program works correctly by running the command:
 password-generator --help
 
-## How to Install and Run on Windows
-
-## Ensure that Windows Package Manager, you can check if winget is installed by running the following command in PowerShell:
-winget --version
-## Installation using winget
-winget install COSIMOv03.password-generator
-## Execution:
-password-generator
-
-This will execute the password generator and display a secure, randomly generated password.
-## Update the Program
-winget upgrade COSIMOv03.password-generator
-
-
 ### Apache License
 Version 2.0, January 2004
 http://www.apache.org/licenses/
