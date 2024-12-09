@@ -1,25 +1,15 @@
-# Password Generator
+## Password Generator
 
-## How to Install and Run on Linux
+sudo apt install python3
 
-## Prerequisites
-A C++ compiler, such as g++, must be installed on your system. 
-On Linux-based systems, you can install g++ using:
-sudo apt install g++
-## Compilation
-1.	Clone the repository:
+## Execution and Installation
 git clone https://github.com/COSIMOv03/password-generator.git
 cd password-generator
-2.	Compile the program:
-g++ password_generator.cpp -o password_generator
-## Execution
-Run the compiled program:
-./password_generator
-Upon execution, the program will generate and display a secure, randomly generated password.
-
-## Example Output
-When you run the program, you’ll see output similar to this:
-Password generated: 4Zj&_A8b@1.XYp
+python3 password_generator.py
+## Example Output: When you run the program, you will see an output similar to this:
+Generating the password...
+V#_Y>r*Q9^ptz8
+Generated password: V#_Y>r*Q9^ptz8
 
 ## How Does It Work?
 1.	The program utilizes the C++ <random> library to generate a randomized password based on:
@@ -29,21 +19,6 @@ Password generated: 4Zj&_A8b@1.XYp
    •	No Data Storage: We do not store, manage, or log any passwords.
    •	Decentralized Security: Passwords are generated locally to minimize risks of centralized attacks.
    •	User-First Design: Security and privacy are prioritized in every aspect of the program.
-
-## How to Install and Run on macOS
-
-## Add the Tap
-brew tap COSIMOv03/password-generator https://github.com/COSIMOv03/homebrew-password-generator
-## Install the Program
-brew install password-generator
-## Run the Program: Once installed, you can run the program with:
-password-generator
-## Update the Program: To update the program to the latest version:
-brew upgrade password-generator
-## Test the Compilation: Before uploading the formula to your GitHub repository, make sure the program compiles correctly using the formula. You can do this by testing the formula locally with:
-brew install --build-from-source password-generator
-## Verify Functionality: After installation, make sure the program works correctly by running the command:
-password-generator --help
 
 ### Apache License
 Version 2.0, January 2004
