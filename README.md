@@ -1,4 +1,4 @@
-# OPG | Online Password Generator
+# Password Generator
 
 ## How to Install and Run
 ## Prerequisites
@@ -9,7 +9,7 @@ sudo apt install g++
 
 ## Compilation
 1.	Clone the repository:
-git clone https://github.com/yourusername/password-generator.git
+git clone https://github.com/COSIMOv03/password-generator.git
 cd password-generator
 2.	Compile the program:
 g++ password_generator.cpp -o password_generator
