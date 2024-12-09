@@ -12,13 +12,16 @@ V#_Y>r*Q9^ptz8
 Generated password: V#_Y>r*Q9^ptz8
 
 ## How Does It Work?
-1.	The program utilizes the C++ <random> library to generate a randomized password based on:
-   o	A predefined character set of letters, numbers, and symbols.
-   o	A randomized password length between 8 and 50 characters.
-2.	The generated password is displayed directly in the terminal, ensuring no sensitive data is stored or logged.
-   •	No Data Storage: We do not store, manage, or log any passwords.
-   •	Decentralized Security: Passwords are generated locally to minimize risks of centralized attacks.
-   •	User-First Design: Security and privacy are prioritized in every aspect of the program.
+1. The program generates a random password using Python’s built-in random and string libraries.
+It constructs a password from a predefined character set consisting of uppercase and lowercase letters, digits, and special symbols.
+The password length is randomly selected between 8 and 50 characters.
+The password is generated and displayed directly in the terminal without storing it or logging it.
+During the process, a "Matrix-like" effect is simulated with scrolling random characters for 10 seconds to create a dynamic and engaging experience.
+No Data Storage:
+2. The program does not store or log any passwords, ensuring that sensitive data is never retained.
+Decentralized Security:
+3. The password is generated locally, minimizing the risk of centralized data breaches.
+4. User-Centric Design: Security and privacy are prioritized throughout the design of the program, with an emphasis on keeping user data private and secure.
 
 ### Apache License
 Version 2.0, January 2004
