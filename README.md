@@ -53,6 +53,7 @@ winget --version
 winget install COSIMOv03.password-generator
 ## Execution:
 password-generator
+
 This will execute the password generator and display a secure, randomly generated password.
 ## Update the Program
 winget upgrade COSIMOv03.password-generator
