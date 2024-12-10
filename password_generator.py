@@ -3,8 +3,8 @@ import string
 import time
 import sys
 
-# Caratteri da utilizzare nel loop (alfabeto e numeri)
-charset = "ABCDEFGHIKJLMNOPQRSTUWVZ0123456789"
+# Caratteri ASCII stampabili (dallo spazio a ~)
+charset = ''.join(chr(i) for i in range(32, 127))  # Include tutti i caratteri ASCII
 
 # Funzione per simulare l'effetto di scorrimento verso destra
 def print_matrix_effect(duration):
@@ -46,7 +46,7 @@ def main():
     print("Generazione della password in corso...")
     print_matrix_effect(10)  # Esegui l'effetto di scorrimento per 10 secondi
 
-    # Genera la password
+    # Genera la password utilizzando il charset con tutti i caratteri ASCII
     password = ''.join(random.choice(charset) for _ in range(password_length))
     print(f"Password generata: {password}")  # Mostra la password finale
 
