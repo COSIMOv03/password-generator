@@ -4,7 +4,7 @@ sudo apt install git
 sudo apt install python3
 
 ## Execution and Installation
-git clone https://github.com/COSIMOv03/password-generator.git
+git clone https://github.com/COSIMOv03/password-generator.git 
 cd password-generator
 python3 password_generator.py
 
