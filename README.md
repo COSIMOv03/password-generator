@@ -1,12 +1,4 @@
 ## Password Generator
-sudo apt update && sudo apt upgrade -y
-sudo apt install git
-sudo apt install python3
-
-## Execution and Installation
-git clone https://github.com/COSIMOv03/password-generator.git 
-cd password-generator
-python3 password_generator.py
 
 ## How Does It Work?
 1. The program generates a random password using Python’s built-in random and string libraries.
@@ -19,6 +11,22 @@ No Data Storage:
 Decentralized Security:
 3. The password is generated locally, minimizing the risk of centralized data breaches.
 4. User-Centric Design: Security and privacy are prioritized throughout the design of the program, with an emphasis on keeping user data private and secure.
+
+## Upgrade your terminal
+
+sudo apt update && sudo apt upgrade -y
+
+sudo apt install git
+
+sudo apt install python3
+
+## Execution and Installation
+
+git clone https://github.com/COSIMOv03/password-generator.git 
+
+cd password-generator
+
+python3 password_generator.py
 
 ### Apache License
 Version 2.0, January 2004
