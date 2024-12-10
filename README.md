@@ -6,10 +6,6 @@ sudo apt install python3
 git clone https://github.com/COSIMOv03/password-generator.git
 cd password-generator
 python3 password_generator.py
-## Example Output: When you run the program, you will see an output similar to this:
-Generating the password...
-V#_Y>r*Q9^ptz8
-Generated password: V#_Y>r*Q9^ptz8
 
 ## How Does It Work?
 1. The program generates a random password using Python’s built-in random and string libraries.
@@ -58,10 +54,6 @@ END OF TERMS AND CONDITIONS
 ---
 
 ### Conclusions
-
-The link of my site http://bit.ly/3Z9mumW
-
 "In a world where data breaches are increasingly common, this program stands out by eliminating the risk of centralized attacks.
 We believe that true security lies in decentralization and empowering users to manage their own data."
-
-Email: cosiorla@gmail.com
+Email for contact: cosiorla@gmail.com
