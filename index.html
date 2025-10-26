@@ -6,8 +6,8 @@
     <title>Generatore e Controllo Password</title>
     <link rel="stylesheet" href="style.css">
 
-    <!-- Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
     <h1>Generatore e Controllo Sicurezza Password</h1>
 
     <!-- Form personalizzazione password -->
-    <form id="PG-FORM" class="lp-pg-settings">
+    <form id="PG-FORM" class="lp-pg-settings" onsubmit="return handleFormSubmit(event)">
         <h3 class="lp-pg-settings__title">Personalizza la tua password</h3>
 
         <div class="lp-custom-range__wrapper">
@@ -37,15 +37,13 @@
                 <label><input type="checkbox" id="lp-pg-symbols" checked> Simboli</label>
             </div>
         </div>
+
+        <!-- Google reCAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="LA_TUA_SITE_KEY"></div>
+
+        <!-- Pulsante generazione -->
+        <button type="submit">Genera Password</button>
     </form>
-
-    <!-- Cloudflare Turnstile -->
-    <div class="cf-turnstile" 
-         data-sitekey="YOUR_SITE_KEY"
-         data-callback="onTurnstileSuccess"></div>
-
-    <!-- Pulsante generazione -->
-    <button onclick="generatePassword()">Genera Password</button>
 
     <!-- Password generata -->
     <p id="generatedPassword" class="generated"></p>
