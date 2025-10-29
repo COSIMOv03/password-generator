@@ -1,15 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Custom Tag Manager</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generatore e Controllo Password Animato</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Custom Tag Manager Demo</h1>
-  <div id="embed-container"></div>
 
-  <script type="module" src="script.js"></script>
+<div class="container">
+    <h1>Generatore e Controllo Password Live</h1>
+
+    <!-- Testo dinamico tipo Parrot OS -->
+    <p class="dynamic-text">
+        Proteggi le tue <br> password con <span class="animated-text"></span><span class="cursor">|</span>
+    </p>
+
+    <!-- Generatore password -->
+    <div id="generator">
+        <h3>Personalizza la tua password</h3>
+        <label for="password-length">Lunghezza: <span id="length-value">12</span></label>
+        <input type="range" id="password-length" min="4" max="64" value="12">
+
+        <div class="checkbox-group">
+            <label><input type="checkbox" id="uppercase" checked> Lettere maiuscole</label>
+            <label><input type="checkbox" id="lowercase" checked> Lettere minuscole</label>
+            <label><input type="checkbox" id="numbers" checked> Numeri</label>
+            <label><input type="checkbox" id="symbols" checked> Simboli</label>
+            <label><input type="checkbox" id="exclude-ambiguous"> Escludi simboli ambigui (l, 1, O, 0)</label>
+        </div>
+
+        <div class="radio-group">
+            <label><input type="radio" name="style" value="easy-to-say"> Facile da dire</label>
+            <label><input type="radio" name="style" value="easy-to-read"> Facile da leggere</label>
+            <label><input type="radio" name="style" value="all-characters" checked> Tutti i caratteri</label>
+        </div>
+    </div>
+
+    <p id="generatedPassword" class="generated"></p>
+    <button id="copy-btn">📋 Copia negli appunti</button>
+
+    <!-- Controllo password -->
+    <h3>Verifica la tua password</h3>
+    <input type="password" id="password" placeholder="Inserisci la tua password">
+    <button id="check-btn">Verifica Password</button>
+    <p id="result"></p>
+    <div class="result">
+        Tempo stimato per crackare la tua password: <span id="first_estimate"><h1>0 secondi</h1></span>
+    </div>
+
+    <div class="info">
+        <h2>Perché usare password generate automaticamente?</h2>
+        <p><strong>Maggiore complessità:</strong> Le password generate automaticamente sono più difficili da indovinare.</p>
+        <p><strong>Evita schemi prevedibili:</strong> Gli attacchi di brute-force sfruttano schemi prevedibili delle password umane.</p>
+        <p><strong>Difficile da memorizzare, ma sicura:</strong> Usa un password manager per ricordarle.</p>
+        <p><strong>Password uniche per ogni servizio:</strong> Riduce i rischi in caso di compromissione.</p>
+        <p><strong>Protezione contro phishing:</strong> Non proteggono dal phishing, ma riducono i danni da compromessi.</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
