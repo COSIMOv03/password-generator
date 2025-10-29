@@ -1,99 +1,136 @@
-let isVerified = false;
+// ------------------------------
+// Type Definitions
+// ------------------------------
+type PageInfo = { id?: string };
+type SiteTag = {
+  name: string;
+  content: string;
+  pages?: string[];
+  position?: 'head' | 'body_start' | 'body_end';
+  loadOnce?: boolean;
+};
+type SiteEmbededTag = { tag: SiteTag; embeddedNodes: Node[] };
 
-// Callback Cloudflare Turnstile
-function onTurnstileSuccess(token) {
-    isVerified = true;
-    console.log("✅ Turnstile completato:", token);
+// ------------------------------
+// Event System
+// ------------------------------
+const isIE = !!document.documentMode;
+
+const eventNames = {
+  TAG_MANAGER_LOADED: 'TagManagerLoaded',
+  TAGS_LOADING: 'TagsLoading',
+  TAG_LOADED: 'TagLoaded',
+  TAG_LOAD_ERROR: 'TagLoadError',
+};
+
+function publishEvent(eventName: string, target: Node, detail: any) {
+  let customEvent: any;
+  if (isIE) {
+    customEvent = document.createEvent('CustomEvent');
+    customEvent.initCustomEvent(eventName, true, true, detail);
+  } else {
+    customEvent = new CustomEvent(eventName, { detail });
+  }
+  if (target && target.dispatchEvent) {
+    setTimeout(() => target.dispatchEvent(customEvent), 0);
+  }
 }
 
-// Generatore password
-function generatePassword() {
-    if (!isVerified) {
-        alert("⚠️ Completa la verifica di sicurezza prima di generare la password.");
-        return;
-    }
-
-    const length = parseInt(document.getElementById('lp-pg-password-length').value, 10);
-    const includeUppercase = document.getElementById('lp-pg-uppercase').checked;
-    const includeLowercase = document.getElementById('lp-pg-lowercase').checked;
-    const includeNumbers = document.getElementById('lp-pg-numbers').checked;
-    const includeSymbols = document.getElementById('lp-pg-symbols').checked;
-    const style = document.querySelector('input[name="encryption-style"]:checked').value;
-
-    let charset = "";
-    if (includeUppercase) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    if (includeLowercase) charset += "abcdefghijklmnopqrstuvwxyz";
-    if (includeNumbers) charset += "0123456789";
-    if (includeSymbols) charset += "_!@.&%?#$";
-
-    if (style === "easy-to-say") charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    else if (style === "easy-to-read") charset = charset.replace(/[l1O0]/g, "");
-
-    let password = "";
-    for (let i = 0; i < length; i++) {
-        const randIndex = Math.floor(Math.random() * charset.length);
-        password += charset[randIndex];
-    }
-
-    document.getElementById('generatedPassword').innerText = password;
+// ------------------------------
+// Node Parsing & Rendering
+// ------------------------------
+function parseEmbedData(content: string): Node[] {
+  const container = document.createElement('div');
+  container.innerHTML = content;
+  return Array.from(container.childNodes);
 }
 
-// --- Checker password ---
-async function getPwnedPasswordInfo(password) {
-    const sha1Hash = await sha1(password);
-    const hashPrefix = sha1Hash.substring(0, 5);
-    const hashSuffix = sha1Hash.substring(5);
-
-    fetch(`https://api.pwnedpasswords.com/range/${hashPrefix}`)
-        .then(response => response.text())
-        .then(data => {
-            const regex = new RegExp(`${hashSuffix.toUpperCase()}:`, 'g');
-            const matches = data.match(regex);
-            const result = matches ? matches.length : 0;
-
-            const resultEl = document.getElementById('result');
-            if (result > 0) {
-                resultEl.innerHTML = `⚠️ Attenzione: La tua password è stata compromessa ${result} volta/e!`;
-                resultEl.classList.add('unsafe');
-                resultEl.classList.remove('safe');
-            } else {
-                resultEl.innerHTML = '🔒 La tua password sembra sicura!';
-                resultEl.classList.add('safe');
-                resultEl.classList.remove('unsafe');
-            }
-
-            estimateCrackTime(password);
-        })
-        .catch(err => {
-            console.error(err);
-            document.getElementById('result').innerHTML = 'Errore nel controllo della password.';
-        });
+function renderNode(node: Node, callbacks: { onload?: Function; onerror?: Function }): Node {
+  if (node.nodeName === 'SCRIPT') {
+    const script = document.createElement('script');
+    const src = (node as HTMLScriptElement).src;
+    if (src) script.src = src;
+    else script.textContent = node.textContent;
+    script.onload = () => callbacks.onload?.();
+    script.onerror = () => callbacks.onerror?.();
+    return script;
+  } else if (node.nodeName === 'STYLE') {
+    const style = document.createElement('style');
+    style.textContent = node.textContent;
+    return style;
+  } else {
+    const clone = node.cloneNode(true);
+    return clone;
+  }
 }
 
-async function sha1(password) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await crypto.subtle.digest('SHA-1', data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+// ------------------------------
+// Tag Management
+// ------------------------------
+const embedTags: SiteEmbededTag[] = [];
+const loadingTags: SiteTag[] = [];
+const loadedTags: SiteTag[] = [];
+const errorTags: SiteTag[] = [];
+
+function addTagEmbeds(tags: SiteTag[]) {
+  tags.forEach(tag => embedTags.push({ tag, embeddedNodes: [] }));
 }
 
-function estimateCrackTime(password) {
-    let time = '0 secondi';
-    if (password.length < 6) time = 'Immediato';
-    else if (password.length < 8) time = 'Pochi secondi';
-    else if (password.length < 10) time = 'Pochi minuti';
-    else if (password.length < 12) time = 'Poche ore';
-    else time = 'Pochi giorni';
-
-    document.getElementById('first_estimate').innerHTML = `<h1>${time}</h1>`;
+function getSiteEmbedTags(): SiteEmbededTag[] {
+  return embedTags;
 }
 
-function checkPassword() {
-    const password = document.getElementById('password').value;
-    if (password) getPwnedPasswordInfo(password);
-    else {
-        document.getElementById('result').innerHTML = '';
-        document.getElementById('first_estimate').innerHTML = '<h1>0 secondi</h1>';
-    }
+// ------------------------------
+// Page Filtering
+// ------------------------------
+function isTagValidForPage(tag: SiteEmbededTag, page: PageInfo): boolean {
+  return !page.id || !tag.tag.pages?.length || tag.tag.pages.includes(page.id);
 }
+
+function filterTagsByPageID(tags: SiteEmbededTag[], page: PageInfo): SiteEmbededTag[] {
+  return tags.filter(tag => isTagValidForPage(tag, page));
+}
+
+// ------------------------------
+// Apply Embeds
+// ------------------------------
+function applySiteEmbeds(tags: SiteEmbededTag[], page: PageInfo) {
+  const tagsToEmbed = filterTagsByPageID(tags, page);
+
+  tagsToEmbed.forEach(siteTag => {
+    const nodes = parseEmbedData(siteTag.tag.content);
+    const parentNode = siteTag.tag.position === 'head' ? document.head : document.body;
+
+    const embeddedNodes: Node[] = [];
+    nodes.forEach(node => {
+      const rendered = renderNode(node, {
+        onload: () => {
+          loadedTags.push(siteTag.tag);
+          publishEvent(eventNames.TAG_LOADED, window, siteTag.tag);
+        },
+        onerror: () => {
+          errorTags.push(siteTag.tag);
+          publishEvent(eventNames.TAG_LOAD_ERROR, window, siteTag.tag);
+        }
+      });
+      embeddedNodes.push(rendered);
+      parentNode.appendChild(rendered);
+    });
+
+    siteTag.embeddedNodes = embeddedNodes;
+    loadingTags.push(siteTag.tag);
+  });
+
+  publishEvent(eventNames.TAGS_LOADING, window, tagsToEmbed.map(t => t.tag));
+}
+
+// ------------------------------
+// Demo Usage
+// ------------------------------
+const demoTags: SiteTag[] = [
+  { name: 'demo-script', content: 'console.log("Script loaded dynamically")', position: 'body_end' },
+  { name: 'demo-style', content: '<style>body{background:#e0f7fa;}</style>', position: 'head' },
+];
+
+addTagEmbeds(demoTags);
+applySiteEmbeds(getSiteEmbedTags(), { id: '' });
