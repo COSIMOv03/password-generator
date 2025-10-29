@@ -1,75 +1,15 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generatore e Controllo Password</title>
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Tag Manager</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>Custom Tag Manager Demo</h1>
+  <div id="embed-container"></div>
 
-<div class="container">
-    <h1>Generatore e Controllo Sicurezza Password</h1>
-
-    <!-- Form personalizzazione password -->
-    <form id="PG-FORM" class="lp-pg-settings" onsubmit="return handleFormSubmit(event)">
-        <h3 class="lp-pg-settings__title">Personalizza la tua password</h3>
-
-        <div class="lp-custom-range__wrapper">
-            <label for="lp-pg-password-length">Lunghezza della password</label>
-            <input value="12" name="length" id="lp-pg-password-length" type="number" min="4" max="100">
-        </div>
-
-        <div class="lp-row">
-            <div class="lp-pg-settings__radio-wrap">
-                <label><input type="radio" name="encryption-style" value="easy-to-say"> Facile da dire</label>
-                <label><input type="radio" name="encryption-style" value="easy-to-read"> Facile da leggere</label>
-                <label><input type="radio" name="encryption-style" value="all-characters" checked> Tutti i caratteri</label>
-            </div>
-
-            <div class="lp-pg-settings__checkbox-wrap">
-                <label><input type="checkbox" id="lp-pg-uppercase" checked> Lettere maiuscole</label>
-                <label><input type="checkbox" id="lp-pg-lowercase" checked> Lettere minuscole</label>
-                <label><input type="checkbox" id="lp-pg-numbers" checked> Numeri</label>
-                <label><input type="checkbox" id="lp-pg-symbols" checked> Simboli</label>
-            </div>
-        </div>
-
-        <!-- Google reCAPTCHA -->
-        <div class="g-recaptcha" data-sitekey="LA_TUA_SITE_KEY"></div>
-
-        <!-- Pulsante generazione -->
-        <button type="submit">Genera Password</button>
-    </form>
-
-    <!-- Password generata -->
-    <p id="generatedPassword" class="generated"></p>
-
-    <!-- Controllo sicurezza password -->
-    <input type="password" id="password" placeholder="Inserisci la tua password" oninput="checkPassword()">
-    <button onclick="checkPassword()">Verifica Password</button>
-    <p id="result"></p>
-    <div class="result col_left">
-        Tempo stimato per crackare la tua password: <span id="first_estimate"><h1>0 secondi</h1></span>
-    </div>
-
-    <!-- Sezione informativa -->
-    <div class="info">
-        <h2>È importante una password generata automaticamente?</h2>
-        <p><strong>Maggiore complessità e imprevedibilità:</strong> Una password generata automaticamente ha caratteristiche di complessità e imprevedibilità difficili da ottenere con una password scelta manualmente...</p>
-        <p><strong>Evitare schemi prevedibili:</strong> Gli attacchi di brute-force o basati su dizionario sfruttano le debolezze delle password create dagli esseri umani...</p>
-        <p><strong>Difficile da memorizzare, ma sicura:</strong> Le password generate automaticamente sono più lunghe e contengono varietà di caratteri. Usa un password manager per memorizzarle.</p>
-        <p><strong>Password uniche per ogni servizio:</strong> Usare password uniche riduce i rischi in caso di compromissione di un account.</p>
-        <p><strong>Protezione contro phishing e furto:</strong> Anche se sicure, le password automatiche non proteggono dal phishing, ma riducono i danni in caso di compromesso.</p>
-    </div>
-
-</div>
-
-<!-- Script -->
-<script src="script.js"></script>
-
+  <script type="module" src="script.js"></script>
 </body>
 </html>
