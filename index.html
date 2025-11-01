@@ -1,64 +1,167 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Generatore e Controllo Password Animato</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParrotPass | Generatore Password Sicure</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>Generatore e Controllo Password Live</h1>
+  <!-- HEADER -->
+  <header class="glass-header">
+    <h1>
+      <span class="title-static">🦜 </span>
+      <span class="title-dynamic"></span>
+      <span class="cursor">|</span>
+    </h1>
+    <p>Generatore e Controllo Password Sicure</p>
+  </header>
 
-    <!-- Testo dinamico tipo Parrot OS -->
-    <p class="dynamic-text">
-        Proteggi le tue <br> password con <span class="animated-text"></span><span class="cursor">|</span>
-    </p>
+  <main class="container">
+    <!-- GENERATORE -->
+    <section class="glass-inner section" id="generator">
+      <h2>🔐 Genera la tua password sicura</h2>
 
-    <!-- Generatore password -->
-    <div id="generator">
-        <h3>Personalizza la tua password</h3>
-        <label for="password-length">Lunghezza: <span id="length-value">12</span></label>
-        <input type="range" id="password-length" min="4" max="64" value="12">
+      <label for="password-length">Lunghezza: <span id="length-value">12</span></label>
+      <input type="range" id="password-length" min="4" max="64" value="12">
 
-        <div class="checkbox-group">
-            <label><input type="checkbox" id="uppercase" checked> Lettere maiuscole</label>
-            <label><input type="checkbox" id="lowercase" checked> Lettere minuscole</label>
-            <label><input type="checkbox" id="numbers" checked> Numeri</label>
-            <label><input type="checkbox" id="symbols" checked> Simboli</label>
-            <label><input type="checkbox" id="exclude-ambiguous"> Escludi simboli ambigui (l, 1, O, 0)</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="uppercase" checked> Lettere maiuscole</label>
+        <label><input type="checkbox" id="lowercase" checked> Lettere minuscole</label>
+        <label><input type="checkbox" id="numbers" checked> Numeri</label>
+        <label><input type="checkbox" id="symbols" checked> Simboli</label>
+        <label><input type="checkbox" id="exclude-ambiguous"> Escludi simboli ambigui (l, 1, O, 0)</label>
+      </div>
+
+      <div class="radio-group">
+        <label><input type="radio" name="style" value="easy-to-say"> Facile da dire</label>
+        <label><input type="radio" name="style" value="easy-to-read"> Facile da leggere</label>
+        <label><input type="radio" name="style" value="all-characters" checked> Tutti i caratteri</label>
+      </div>
+
+      <p id="generatedPassword" class="generated"></p>
+      <button id="copy-btn">📋 Copia password</button>
+    </section>
+
+    <!-- CONTROLLO -->
+    <section class="glass-inner section">
+      <h2>🧠 Verifica la tua password</h2>
+      <input type="password" id="password" placeholder="Inserisci la tua password">
+      <button id="check-btn">Verifica</button>
+      <p id="result"></p>
+      <div class="result">
+        Tempo stimato per crackare la password:
+        <span id="first_estimate"><h1>0 secondi</h1></span>
+      </div>
+    </section>
+
+    <!-- DESCRIZIONE -->
+    <section class="glass-inner section info">
+      <h2>💡 È importante una password generata automaticamente?</h2>
+
+      <h3>Maggiore complessità e imprevedibilità</h3>
+      <p>
+        Una password generata automaticamente ha un livello di <strong>complessità</strong> e 
+        <strong>imprevedibilità</strong> impossibile da ottenere manualmente.  
+        Le persone tendono a usare schemi semplici, parole comuni o date personali, rendendo le password vulnerabili.
+        Le password create da <em>ParrotPass</em> includono caratteri alfanumerici e simboli casuali, 
+        rendendole estremamente difficili da indovinare anche con tecniche di brute-force.
+      </p>
+
+      <h3>Evitare schemi prevedibili</h3>
+      <p>
+        Gli attacchi di forza bruta o basati su dizionari sfruttano schemi prevedibili come <code>123456</code> 
+        o <code>qwerty</code>.  
+        ParrotPass genera password completamente casuali e non seguono schemi riconoscibili, 
+        migliorando la tua sicurezza digitale.
+      </p>
+
+      <h3>Difficile da memorizzare, ma sicura</h3>
+      <p>
+        Le password forti possono essere lunghe e complesse, ma anche difficili da ricordare.  
+        Utilizzare un <strong>password manager</strong> è la soluzione ideale: conserva in modo sicuro 
+        tutte le tue credenziali, protette da crittografia avanzata.
+      </p>
+
+      <h3>Password uniche per ogni servizio</h3>
+      <p>
+        Usa <strong>una password diversa per ogni account</strong>.  
+        In caso di violazione di un servizio, gli altri rimangono protetti.  
+        Con ParrotPass puoi generare facilmente password uniche e sicure per ciascun sito.
+      </p>
+
+      <h3>Protezione contro phishing e furto di credenziali</h3>
+      <p>
+        Anche una password complessa non può proteggere da tutto, ma riduce enormemente i danni 
+        causati da attacchi di <strong>phishing</strong> o violazioni isolate.  
+        Password forti e uniche per ogni account sono la base della sicurezza online.
+      </p>
+    </section>
+
+    <!-- INFO BLOCKS PARROT OS STYLE -->
+    <section class="glass-inner info-dynamic section">
+      <h2>🧩 Sicurezza Totale, Design Parrot</h2>
+      <div class="info-grid">
+
+        <div class="info-block">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <path d="M27.09 5.31L16.473 1.69A1.537 1.537 0 0016 1.626c-.172 0-.344.022-.472.066L4.91 5.309a.75.75 0 00-.471.663v15.075c0 .275.178.637.393.81l10.772 8.393c.11.084.25.128.394.128a.639.639 0 00.394-.128l10.772-8.394c.215-.169.393-.531.393-.81V5.973c.006-.275-.206-.572-.465-.663zm-5.387 5.337l-6.644 9.147a.502.502 0 01-.812 0l-3.95-5.438a.25.25 0 01.203-.397h1.725c.16 0 .313.079.406.207l2.022 2.78 4.716-6.493a.503.503 0 01.406-.206H21.5c.203.003.322.234.203.4z"></path>
+            </svg>
+          </div>
+          <h3>System Security</h3>
+          <p>
+            Il sistema è costruito per la sicurezza.  
+            Supporto per <strong>crittografia completa del disco</strong>, aggiornamenti rapidi e un 
+            <strong>core Debian rinforzato</strong> garantiscono protezione ai tuoi dati sensibili.
+          </p>
         </div>
 
-        <div class="radio-group">
-            <label><input type="radio" name="style" value="easy-to-say"> Facile da dire</label>
-            <label><input type="radio" name="style" value="easy-to-read"> Facile da leggere</label>
-            <label><input type="radio" name="style" value="all-characters" checked> Tutti i caratteri</label>
+        <div class="info-block">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 2a14 14 0 1014 14A14.016 14.016 0 0016 2zm0 25.2A11.2 11.2 0 1127.2 16 11.212 11.212 0 0116 27.2z"/><path d="M21 14h-1v-1a4 4 0 00-8 0v1h-1a1 1 0 00-1 1v8a1 1 0 001 1h10a1 1 0 001-1v-8a1 1 0 00-1-1zm-6 6.93a.93.93 0 01-.93-.93v-2a.93.93 0 011.86 0v2a.93.93 0 01-.93.93zm2.93-6.93h-5.86v-1a2.93 2.93 0 015.86 0z"/>
+            </svg>
+          </div>
+          <h3>Privacy & Data Protection</h3>
+          <p>
+            Tutte le operazioni di <strong>generazione e verifica password</strong> avvengono localmente, 
+            senza inviare dati al cloud.  
+            ParrotPass rispetta la tua privacy e protegge le informazioni in modo trasparente.
+          </p>
         </div>
-    </div>
 
-    <p id="generatedPassword" class="generated"></p>
-    <button id="copy-btn">📋 Copia negli appunti</button>
+        <div class="info-block">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <path d="M27 4H5a1 1 0 00-1 1v22a1 1 0 001 1h22a1 1 0 001-1V5a1 1 0 00-1-1zm-1 22H6V6h20z"/><path d="M21 16h-4v-5h-2v7h6v-2z"/>
+            </svg>
+          </div>
+          <h3>Freedom & Open Source</h3>
+          <p>
+            ParrotPass è un progetto <strong>open-source</strong>.  
+            Il codice è trasparente, modificabile e migliorabile da chiunque.  
+            Sicurezza e libertà convivono, come nella filosofia Parrot.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <!-- Controllo password -->
-    <h3>Verifica la tua password</h3>
-    <input type="password" id="password" placeholder="Inserisci la tua password">
-    <button id="check-btn">Verifica Password</button>
-    <p id="result"></p>
-    <div class="result">
-        Tempo stimato per crackare la tua password: <span id="first_estimate"><h1>0 secondi</h1></span>
-    </div>
+    <!-- FORUM -->
+    <section class="glass-inner forum section">
+      <h2>💬 Forum della Community</h2>
+      <p>Condividi suggerimenti o domande sulla sicurezza digitale.</p>
+      <div id="comments"></div>
+      <textarea id="comment-input" placeholder="Scrivi un commento..."></textarea>
+      <button id="post-comment">Invia</button>
+    </section>
+  </main>
 
-    <div class="info">
-        <h2>Perché usare password generate automaticamente?</h2>
-        <p><strong>Maggiore complessità:</strong> Le password generate automaticamente sono più difficili da indovinare.</p>
-        <p><strong>Evita schemi prevedibili:</strong> Gli attacchi di brute-force sfruttano schemi prevedibili delle password umane.</p>
-        <p><strong>Difficile da memorizzare, ma sicura:</strong> Usa un password manager per ricordarle.</p>
-        <p><strong>Password uniche per ogni servizio:</strong> Riduce i rischi in caso di compromissione.</p>
-        <p><strong>Protezione contro phishing:</strong> Non proteggono dal phishing, ma riducono i danni da compromessi.</p>
-    </div>
-</div>
+  <footer class="glass-footer">
+    <p>🦜 ParrotPass © 2025 — Sicurezza, Libertà, Eleganza.</p>
+  </footer>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
