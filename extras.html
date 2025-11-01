@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ParrotPass Extra</title>
+<link rel="stylesheet" href="style.css"> <!-- Lo stesso style del sito -->
+</head>
+<body>
+
+<div class="container">
+    <!-- Blocco pubblicità -->
+    <div class="glass-card ad-block">
+        <h5>📢 Annuncio Pubblicitario</h5>
+        <p>Questo è un esempio di blocco pubblicitario tra le sezioni.</p>
+    </div>
+
+    <!-- Forum con reCAPTCHA -->
+    <div class="glass-card">
+        <h5>💬 Forum</h5>
+        <form id="forum-form">
+            <textarea placeholder="Scrivi un commento..." rows="4"></textarea>
+            <!-- Qui inserisci reCAPTCHA v2 o v3 -->
+            <div class="g-recaptcha" data-sitekey="LA_TUA_SITE_KEY"></div>
+            <button type="submit">Invia</button>
+        </form>
+    </div>
+
+    <!-- Informazioni extra -->
+    <div class="glass-card">
+        <h5>🛡️ Protezione Cloudflare</h5>
+        <p>Cloudflare protegge tutto il sito da bot e attacchi DDoS senza modificare il design.</p>
+    </div>
+</div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+    document.getElementById('forum-form').addEventListener('submit', function(e){
+        e.preventDefault();
+        alert("✅ Commento inviato (reCAPTCHA simulato)");
+    });
+</script>
+
+</body>
+</html>
