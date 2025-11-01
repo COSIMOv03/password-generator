@@ -1,47 +1,35 @@
-# 🦜 ParrotPass — Generatore e Controllo Password Sicure
+# 🦜 ParrotPass — Secure Password Generator & Checker
 
-**ParrotPass** è un’applicazione web open-source per la **generazione** e il **controllo** di password sicure.  
-Nasce con l’obiettivo di rendere la sicurezza accessibile a tutti, mantenendo **privacy, libertà e design elegante**.
-
----
-
-## 🚀 Funzionalità principali
-
-- 🔐 **Generatore di password sicure**
-  - Scelta della lunghezza (4–64 caratteri)
-  - Opzioni per lettere maiuscole, minuscole, numeri e simboli
-  - Possibilità di escludere simboli ambigui (`l`, `1`, `O`, `0`)
-  - Stili: *facile da dire*, *facile da leggere* o *tutti i caratteri*
-
-- 🧠 **Verifica robustezza password**
-  - Analisi istantanea della forza della password
-  - Stima del tempo necessario per un attacco brute-force
-
-- 🧩 **Sicurezza e trasparenza**
-  - Tutto avviene **in locale**: nessun dato inviato al cloud
-  - Codice completamente **open-source**
-  - Interfaccia ispirata al design di **Parrot OS**
-
-- 💬 **Forum integrato**
-  - Sezione per lasciare suggerimenti, domande o feedback
+**ParrotPass** is an open-source web application designed for **secure password generation** and **strength verification**.  
+It aims to make digital security accessible to everyone — with **privacy, freedom, and elegant design** at its core.
 
 ---
 
-## 🛠️ Tecnologie utilizzate
+## 🚀 Main Features
+
+- 🔐 **Secure Password Generator**
+  - Choose length (4–64 characters)
+  - Options for uppercase, lowercase, numbers, and symbols
+  - Exclude ambiguous characters (`l`, `1`, `O`, `0`)
+  - Styles: *easy to say*, *easy to read*, or *all characters*
+
+- 🧠 **Password Strength Checker**
+  - Instantly analyze password strength
+  - Estimate time to crack via brute-force attacks
+
+- 🧩 **Security & Transparency**
+  - 100% **local execution** — no data sent to the cloud
+  - Fully **open-source** and modifiable
+  - Clean interface inspired by **Parrot OS** design
+
+- 💬 **Built-in Community Forum**
+  - Leave comments, questions, and suggestions directly in the app
+
+---
+
+## 🛠️ Technologies Used
 
 - **HTML5**
 - **CSS3 (Glassmorphism UI)**
-- **JavaScript (Vanilla)**
-- Focus su **Cybersecurity** e **Web Security Best Practices**
-
-Compatibile con **Linux**, **Windows** e **macOS**.
-
----
-
-## 📦 Installazione
-
-Puoi clonare il repository ed eseguirlo localmente:
-
-```bash
-git clone https://github.com/<tuo-username>/ParrotPass.git
-cd ParrotPass
+- **Vanilla JavaScript**
+- Focus on **Cybersecurity** and **Web Security Best Practices**
