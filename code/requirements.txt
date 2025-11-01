@@ -1,0 +1,8 @@
+# ParrotPass - dipendenze Python
+# Nota: sqlite3 è incluso in Python / sistema e non va nel pip
+
+cryptography==42.0.5
+argon2-cffi==23.1.0
+zxcvbn-python==3.0.0    # opzionale: analisi forza password avanzata
+python-dotenv==1.1.1    # opzionale: gestione variabili ambiente (es. PATH alla key)
+pytest==7.4.0           # opzionale: per test automatici
