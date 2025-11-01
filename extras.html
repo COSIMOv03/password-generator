@@ -3,41 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ParrotPass Extra</title>
-<link rel="stylesheet" href="style.css"> <!-- Lo stesso style del sito -->
+<title>ParrotPass Extras</title>
+<!-- Colleghiamo lo stesso CSS del sito principale -->
+<link rel="stylesheet" href="style.css">
+<!-- Google reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 
 <div class="container">
-    <!-- Blocco pubblicità -->
+    <h1>🔧 ParrotPass Extras</h1>
+
+    <!-- Blocco pubblicitario 1 -->
     <div class="glass-card ad-block">
         <h5>📢 Annuncio Pubblicitario</h5>
-        <p>Questo è un esempio di blocco pubblicitario tra le sezioni.</p>
+        <p>Questo è un esempio di blocco pubblicitario tra le glass card. Puoi cambiarlo facilmente.</p>
+    </div>
+
+    <!-- Blocco pubblicitario 2 -->
+    <div class="glass-card ad-block">
+        <h5>📢 Altro Annuncio</h5>
+        <p>Puoi aggiungere immagini, link o iframe per i tuoi banner pubblicitari.</p>
     </div>
 
     <!-- Forum con reCAPTCHA -->
     <div class="glass-card">
-        <h5>💬 Forum</h5>
+        <h5>💬 Forum Commenti</h5>
         <form id="forum-form">
             <textarea placeholder="Scrivi un commento..." rows="4"></textarea>
-            <!-- Qui inserisci reCAPTCHA v2 o v3 -->
             <div class="g-recaptcha" data-sitekey="LA_TUA_SITE_KEY"></div>
             <button type="submit">Invia</button>
         </form>
+        <p id="forum-feedback"></p>
     </div>
 
-    <!-- Informazioni extra -->
+    <!-- Informazioni Cloudflare -->
     <div class="glass-card">
         <h5>🛡️ Protezione Cloudflare</h5>
-        <p>Cloudflare protegge tutto il sito da bot e attacchi DDoS senza modificare il design.</p>
+        <p>Cloudflare protegge tutto il sito da bot e attacchi DDoS, garantendo sicurezza anche per il generatore di password.</p>
+    </div>
+
+    <!-- Link per tornare al generatore -->
+    <div class="glass-card">
+        <h5>🔙 Torna al Generatore</h5>
+        <a href="index.html" class="glass-link">ParrotPass Generatore</a>
     </div>
 </div>
 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="script.js"></script>
 <script>
+    // Gestione forum semplice
     document.getElementById('forum-form').addEventListener('submit', function(e){
         e.preventDefault();
-        alert("✅ Commento inviato (reCAPTCHA simulato)");
+        const feedback = document.getElementById('forum-feedback');
+        feedback.innerText = "✅ Commento inviato (simulazione, reCAPTCHA non verificata lato server).";
+        feedback.style.color = "lightgreen";
+        this.reset();
     });
 </script>
 
